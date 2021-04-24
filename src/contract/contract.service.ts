@@ -103,4 +103,15 @@ export class ContractService {
       accountBalance.balanceAmount + contract.contractPrice;
     return await this.accountBalanceEntityRepository.save(accountBalance);
   }
+
+  async getAllContractInSystem(data): Promise<any> {
+
+    const query = {};
+
+    (data.take) ? Object.assign(query, { take: data.take }) : { take: 100 };
+
+    (data.skip) ? Object.assign(query, { skip: data.skip }) : { skip: 0 };
+
+    return this.contractEntityRepository.find(query)
+  }
 }

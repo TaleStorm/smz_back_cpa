@@ -6,11 +6,11 @@ import {
   ParseIntPipe,
   ParseUUIDPipe,
   Post,
-  Put,
+  Put, Query,
 } from '@nestjs/common';
 import { ContractService } from './contract.service';
 import { CreateContractDto } from './dto/CreateContractDto';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import {ApiOperation, ApiQuery, ApiTags} from '@nestjs/swagger';
 
 @ApiTags('Контракты')
 @Controller('contract')
@@ -56,5 +56,13 @@ export class ContractController {
       uuid,
       executerId,
     );
+  }
+
+  @Get('/')
+  @ApiOperation({summary: 'Все контракты в системе'})
+  @ApiQuery({ name: 'skip', required: false , description: 'offset по базе, по дефолту 0' })
+  @ApiQuery({ name: 'take', required: false , description: 'limit по базе, по дефолту 10' })
+  async getAllContractInSystem(@Query() { take, skip }): Promise<any> {
+    return await this.contractService.getAllContractInSystem({take, skip})
   }
 }
