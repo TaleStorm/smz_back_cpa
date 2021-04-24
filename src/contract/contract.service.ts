@@ -28,6 +28,9 @@ export class ContractService {
     }
 
     return await this.contractEntityRepository.find({
+      where: {
+        contractOwnerId: acc.id
+      }
       // relations: ['account'],
     });
   }
