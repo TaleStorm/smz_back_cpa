@@ -1,5 +1,9 @@
 
 ## Installation
+```
+$ cd docker
+$ docker-compose up -d
+```
 
 ```bash
 $ npm install
