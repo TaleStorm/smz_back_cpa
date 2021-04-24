@@ -44,4 +44,7 @@ export class AccountPersonalInfoEntity implements IAccountPersonalInfo {
 
   @Column({ nullable: true })
   surName: string;
+
+  @Column({ default: 1 })
+  role: number;
 }

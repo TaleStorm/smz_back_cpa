@@ -19,6 +19,7 @@ export interface IAccountPersonalInfo {
   readonly passportDateIssue: Date;
   readonly passportWhomIssue: string;
   readonly passportDivisionCode: string;
+  readonly role: number;
 }
 
 export interface IAccountPrivateInfo {

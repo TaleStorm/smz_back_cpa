@@ -50,4 +50,8 @@ export class CreatePersonalInfoDto implements IAccountPersonalInfo {
   @ApiModelProperty()
   @IsString()
   readonly surName: string;
+
+  @ApiModelProperty({ example: 1 })
+  @IsNumber()
+  readonly role: number;
 }
