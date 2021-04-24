@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+
+  mysql:
+    image: mariadb
+    container_name: smz
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=smz
+    ports:
+      - "3306:3306"
+
+

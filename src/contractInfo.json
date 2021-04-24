@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "contractDescription": "string",
+  "contractImageLink": "string",
+  "contractName": "string",
+  "contractOwnerId": 1,
+  "contractPrice": 100,
+  "contractType": 0,
+  "contractUuid": "string",
+  "contractStatus": 0,
+  "createAt": "2021-04-24T06:56:04.190Z",
+  "updateAt": "2021-04-24T07:14:25.000Z"
+}

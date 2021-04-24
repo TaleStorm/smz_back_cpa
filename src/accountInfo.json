@@ -1,0 +1,40 @@
+{
+  "contactInfo": {
+    "id": 1,
+    "accountOwnerId": 1,
+    "email": "string",
+    "fb": "string",
+    "phone": "string",
+    "skype": "string",
+    "vk": "string"
+  },
+  "personalInfo": {
+    "id": 1,
+    "accountOwnerId": 1,
+    "birthDate": "2021-04-24T09:00:54.000Z",
+    "city": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "passportDateIssue": "2021-04-24T09:00:54.000Z",
+    "passportDivisionCode": "string",
+    "passportNumber": 0,
+    "passportSerial": 0,
+    "passportWhomIssue": "string",
+    "region": "string",
+    "sex": 0,
+    "surName": "string"
+  },
+  "privateInfo": {
+    "id": 1,
+    "accountOwnerId": 1,
+    "bankName": "string",
+    "bic": 0,
+    "cardHolder": 0,
+    "cardNumber": 0,
+    "correspondentAccount": 0,
+    "payDetail": "string",
+    "paymentAccount": 0,
+    "inn": "string",
+    "pfr": "string"
+  }
+}
