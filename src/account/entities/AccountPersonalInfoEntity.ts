@@ -9,39 +9,39 @@ export class AccountPersonalInfoEntity implements IAccountPersonalInfo {
   @Column({ default: 1 })
   accountOwnerId: number;
 
-  @Column()
+  @Column({ nullable: true })
   birthDate: Date;
 
-  @Column()
+  @Column({ nullable: true })
   city: string;
 
-  @Column()
+  @Column({ nullable: true })
   firstName: string;
 
-  @Column()
+  @Column({ nullable: true })
   lastName: string;
 
-  @Column()
+  @Column({ nullable: true })
   passportDateIssue: Date;
 
-  @Column()
+  @Column({ nullable: true })
   passportDivisionCode: string;
 
-  @Column()
+  @Column({ nullable: true })
   passportNumber: number;
 
-  @Column()
+  @Column({ nullable: true })
   passportSerial: number;
 
-  @Column()
+  @Column({ nullable: true })
   passportWhomIssue: string;
 
-  @Column()
+  @Column({ nullable: true })
   region: string;
 
-  @Column()
+  @Column({ nullable: true })
   sex: number;
 
-  @Column()
+  @Column({ nullable: true })
   surName: string;
 }

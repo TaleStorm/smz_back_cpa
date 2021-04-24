@@ -10,21 +10,21 @@ export class AccountContactInfoEntity implements IAccountContactInfo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 1 })
+  @Column()
   accountOwnerId: number;
 
-  @Column()
+  @Column({ nullable: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   fb: string;
 
-  @Column()
+  @Column({ nullable: true })
   phone: string;
 
-  @Column()
+  @Column({ nullable: true })
   skype: string;
 
-  @Column()
+  @Column({ nullable: true })
   vk: string;
 }

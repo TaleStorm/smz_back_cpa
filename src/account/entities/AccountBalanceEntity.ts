@@ -13,7 +13,7 @@ export class AccountBalanceEntity implements IAccountBalance {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default: 0 })
   balanceAmount: number;
 
   @Column()

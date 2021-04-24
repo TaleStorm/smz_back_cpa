@@ -6,33 +6,33 @@ export class AccountPrivateInfoEntity implements IAccountPrivateInfo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 1 })
+  @Column()
   accountOwnerId: number;
 
-  @Column()
+  @Column({ nullable: true })
   bankName: string;
 
-  @Column()
+  @Column({ nullable: true })
   bic: number;
 
-  @Column()
+  @Column({ nullable: true })
   cardHolder: number;
 
-  @Column()
+  @Column({ nullable: true })
   cardNumber: number;
 
-  @Column()
+  @Column({ nullable: true })
   correspondentAccount: number;
 
-  @Column()
+  @Column({ nullable: true })
   payDetail: string;
 
-  @Column()
+  @Column({ nullable: true })
   paymentAccount: number;
 
-  @Column()
+  @Column({ nullable: true })
   inn: string;
 
-  @Column()
+  @Column({ nullable: true })
   pfr: string;
 }

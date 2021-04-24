@@ -12,6 +12,6 @@ export class AuthController {
   @Post('/')
   @ApiOperation({ summary: 'Логин пользорвателя' })
   async login(@Body() body: CreateAuthDto): Promise<any> {
-    this.authService.login(body);
+    return await this.authService.login(body);
   }
 }

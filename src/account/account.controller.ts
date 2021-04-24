@@ -26,22 +26,22 @@ export class AccountController {
     return this.accountService.getAllDataByAcc(accId);
   }
 
-  @Put('/contact-info')
+  @Put('/contact-info/:accId')
   @ApiOperation({ summary: 'Обновление контактной информации' })
-  async setContactInfo(@Body() body: CreateContactInfoDto) {
-    return await this.accountService.setContractInfo(body);
+  async setContactInfo(@Body() body: CreateContactInfoDto, @Param('accId', ParseIntPipe) accId: number ) {
+    return await this.accountService.setContractInfo(body, accId);
   }
 
-  @Put('/personal-info')
+  @Put('/personal-info/:accId')
   @ApiOperation({ summary: 'Обновление персональной информации' })
-  async setPersonalInfo(@Body() body: CreatePersonalInfoDto) {
-    return await this.accountService.setPersonalInfo(body);
+  async setPersonalInfo(@Body() body: CreatePersonalInfoDto, @Param('accId', ParseIntPipe) accId: number) {
+    return await this.accountService.setPersonalInfo(body, accId);
   }
 
-  @Put('/private-info')
+  @Put('/private-info/:accId')
   @ApiOperation({ summary: 'Обновление приватной информации' })
-  async setPrivateInfo(@Body() body: CreatePrivateInfoDto) {
-    return await this.accountService.setPrivateInfo(body);
+  async setPrivateInfo(@Body() body: CreatePrivateInfoDto, @Param('accId', ParseIntPipe) accId: number) {
+    return await this.accountService.setPrivateInfo(body, accId);
   }
 
   @Put('/balance/:accId')

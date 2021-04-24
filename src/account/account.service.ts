@@ -55,16 +55,52 @@ export class AccountService {
     return obj;
   }
 
-  async setContractInfo(data: CreateContactInfoDto): Promise<any> {
-    return await this.accountContactInfoEntityRepository.save(data);
+  async setContractInfo(data: CreateContactInfoDto, id: number): Promise<any> {
+    const found = await this.accountContactInfoEntityRepository.findOne({
+      where: {
+        accountOwnerId: id
+      }
+    })
+
+    if(!found) {
+      throw new NotFoundException(`Contact info by id: ${id} is not found`)
+    }
+
+    return await this.accountContactInfoEntityRepository.save(
+        this.accountContactInfoEntityRepository.merge(found, data)
+    );
   }
 
-  async setPrivateInfo(data: CreatePrivateInfoDto): Promise<any> {
-    return await this.accountPrivateInfoEntityRepository.save(data);
+  async setPrivateInfo(data: CreatePrivateInfoDto, id: number): Promise<any> {
+    const found = await this.accountPrivateInfoEntityRepository.findOne({
+      where: {
+        accountOwnerId: id
+      }
+    });
+
+    if(!found) {
+      throw new NotFoundException(`Private info by id: ${id} is not found`)
+    }
+
+    return await this.accountPrivateInfoEntityRepository.save(
+        this.accountPrivateInfoEntityRepository.merge(found, data)
+    );
   }
 
-  async setPersonalInfo(data: CreatePersonalInfoDto): Promise<any> {
-    return await this.accountPersonalInfoEntityRepository.save(data);
+  async setPersonalInfo(data: CreatePersonalInfoDto, id: number): Promise<any> {
+    const found = await this.accountPersonalInfoEntityRepository.findOne({
+      where: {
+        accountOwnerId: id
+      }
+    });
+
+    if(!found) {
+      throw new NotFoundException(`Personal info by id: ${id} is not found`)
+    }
+
+    return await this.accountPersonalInfoEntityRepository.save(
+        this.accountPersonalInfoEntityRepository.merge(found, data)
+    );
   }
 
   async updateAccountBalance(
