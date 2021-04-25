@@ -14,6 +14,7 @@ import { ContractEntity } from './contract/entities/ContractEntity';
 import { ApplicationForExecutionModule } from './application-for-execution/application-for-execution.module';
 import { ApplicationEntity } from './application-for-execution/entities/ApplicationEntity';
 import { AccountBalanceEntity } from './account/entities/AccountBalanceEntity';
+import { InvoceModule } from './invoce/invoce.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { AccountBalanceEntity } from './account/entities/AccountBalanceEntity';
     AccountModule,
     ContractModule,
     ApplicationForExecutionModule,
+    InvoceModule,
   ],
   providers: [AppService],
 })

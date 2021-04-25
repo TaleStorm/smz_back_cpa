@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {ConflictException, Injectable, NotFoundException} from '@nestjs/common';
 import { CreateAuthDto } from '../auth/dto/CreateAuthDto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -92,6 +92,27 @@ export class ContractService {
         balanceOwnerId: executerId,
       },
     });
+
+    const accountBalanceContractHolder = await this.accountBalanceEntityRepository.findOne({
+      where: {
+        balanceOwnerId: contract.contractOwnerId,
+      },
+    })
+
+    if (!accountBalanceContractHolder) {
+      throw new NotFoundException(
+          `Account balance for this owner ${contract.contractOwnerId} is not found`,
+      );
+    }
+
+    if(accountBalanceContractHolder.balanceAmount - contract.contractPrice < 0) {
+      throw new ConflictException('Balance contract holder is less then 0')
+    }
+
+    accountBalanceContractHolder.balanceAmount = accountBalanceContractHolder.balanceAmount - contract.contractPrice;
+
+    await this.accountBalanceEntityRepository.save(accountBalanceContractHolder);
+
 
     if (!accountBalance) {
       throw new NotFoundException(
