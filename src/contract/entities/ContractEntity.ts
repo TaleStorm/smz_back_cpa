@@ -17,7 +17,7 @@ export class ContractEntity implements IContract {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'text'})
   @IsString()
   readonly contractDescription: string;
 
